@@ -69,3 +69,13 @@ class ShowScreenResolution(Scene):
         d2 = Line(frame_height * UP / 2, frame_height * DOWN / 2).to_edge(LEFT)
         self.add(d2)
         self.add(Text(str(pixel_height)).next_to(d2, RIGHT))
+
+class SpinSquare(Scene):
+    def construct(self):
+        square = Square()
+
+        self.play(Rotate(square, 2 * PI))
+        self.wait(0.5)
+        self.play(square.animate.set_fill(PINK, opacity = 0.5))
+        self.play(Rotate(square, -2 * PI))
+        self.play(FadeOut(square))
